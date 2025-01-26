@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DesafioINOA": {
+      "commandName": "Project",
+      "commandLineArgs": "PETR4\r\n"
+    }
+  }
+}
