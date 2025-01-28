@@ -36,18 +36,30 @@ namespace DesafioInoaAlert
 
 
             BrapiAPI api = new BrapiAPI(settings.Api!.Token!);
-            Stock stock = await api.GetPrice(ticker);
 
+            while(true)
+            {
+                try
+                {
+                    Stock stock = await api.GetPrice(ticker);
 
-            if (stock.Price >= sellPrice)
-            {
-                Console.WriteLine($"Preço atual do ativo {ticker}: {stock.Price}. O preço de venda é {sellPrice} e o preço de compra é {buyPrice}");
-                email.SendEmailMessage(settings.Sender!, settings.Recipients!, stock, ticker, "vender");
-            }
-            else if (stock.Price <= buyPrice)
-            {
-                Console.WriteLine($"Preço atual do ativo {ticker}: {stock.Price}. O preço de venda é {sellPrice} e o preço de compra é {buyPrice}");
-                email.SendEmailMessage(settings.Sender!, settings.Recipients!, stock, ticker, "vender");
+                    if (stock.Price >= sellPrice)
+                    {
+                        Console.WriteLine($"Preço atual do ativo {ticker}: {stock.Price}. O preço de venda é {sellPrice} e o preço de compra é {buyPrice}");
+                        email.SendEmailMessage(settings.Sender!, settings.Recipients!, stock, ticker, "vender");
+                    }
+                    else if (stock.Price <= buyPrice)
+                    {
+                        Console.WriteLine($"Preço atual do ativo {ticker}: {stock.Price}. O preço de venda é {sellPrice} e o preço de compra é {buyPrice}");
+                        email.SendEmailMessage(settings.Sender!, settings.Recipients!, stock, ticker, "vender");
+                    }
+
+                    await Task.Delay(settings.Api!.Delay!);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }

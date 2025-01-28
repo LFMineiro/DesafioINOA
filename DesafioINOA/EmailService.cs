@@ -43,7 +43,7 @@ namespace DesafioINOA
 
         public static string CreateBody(decimal price, string ticker, string action)
         {
-            string body = "O atual preço do " + ticker + " eh de " + price + ", portanto, deve-se " + action ;
+            string body = $"O preço atual do ativo {ticker} é de {price}. Portanto, deve-se {action}";
             return body;
         }
 
