@@ -2,7 +2,7 @@
   "profiles": {
     "DesafioINOA": {
       "commandName": "Project",
-      "commandLineArgs": "PETR4\r\n"
+      "commandLineArgs": "PETR4 37.10 37.00"
     }
   }
 }

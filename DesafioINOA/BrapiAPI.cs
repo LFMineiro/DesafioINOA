@@ -17,8 +17,13 @@ namespace DesafioINOA
 
     public class BrapiAPI
     {
-        private const string token = "fRWFrtT59zdC6i33ekJbEL";
-        
+        private readonly string token;
+
+        public BrapiAPI(string token)
+        {
+            this.token = token;
+        }
+
         public async Task<Stock> GetPrice(string ticker)
         {
             Stock stock;
