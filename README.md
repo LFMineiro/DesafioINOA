@@ -30,7 +30,7 @@ No diretório raiz do projeto, crie o arquivo `appsettings.json` com suas creden
 --------
 
 ## ⚙️ Como Usar
-------
+
 O projeto pode ser chamado via linha de comando da forma:
 
 ````
